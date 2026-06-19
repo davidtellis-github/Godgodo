@@ -1,0 +1,124 @@
+@import "./styles/theme.css";
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #0F1935;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  background: #0F1935;
+  overflow-x: hidden;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+/* App shell — fixed cinematic frame with color transition */
+#app-shell {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background-color: #0F1935;
+  transition: background-color 0.1s ease;
+}
+
+/* Inner scroll container */
+#scroll-container {
+  position: absolute;
+  inset: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  background: transparent;
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: inline-block;
+}
+
+/* Text CTA */
+.cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+  letter-spacing: 0.01em;
+  transition: opacity var(--duration-fast);
+}
+.cta-pill:hover { opacity: 0.7; }
+.cta-pill .label { color: var(--text-primary); }
+
+/* Ghost text — faint next-section heading */
+.ghost-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 11rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: rgba(245, 239, 224, 0.05);
+  pointer-events: none;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1;
+  padding: 0 clamp(1.5rem, 6vw, 7.5rem);
+  user-select: none;
+}
+
+/* Placeholder boxes */
+.placeholder-media {
+  background: rgba(245, 239, 224, 0.04);
+  border: 1px dashed rgba(245, 239, 224, 0.15);
+  border-radius: var(--radius-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: rgba(245, 239, 224, 0.25);
+  font-size: 0.7rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(245,239,224,0.15); border-radius: 2px; }

@@ -1,0 +1,99 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Teal blob centered at bottom — matches fromanother glow */
+.blob {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  bottom: -220px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Headline centered, fills viewport width */
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 clamp(1rem, 3vw, 3rem);
+  width: 100%;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 13.5vw, 6rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 0.88;
+  letter-spacing: -0.025em;
+  animation: fadeIn 1s 0.1s var(--ease-out-expo) both;
+}
+
+/* Bottom-left: since label */
+.since {
+  position: absolute;
+  bottom: 2.5rem;
+  left: clamp(1.5rem, 4vw, 4rem);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: rgba(245, 239, 224, 0.45);
+  letter-spacing: 0.04em;
+  z-index: 2;
+}
+
+/* Bottom-center: scroll indicator */
+.scrollCue {
+  position: absolute;
+  bottom: 2.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+  animation: fadeIn 1s 1s var(--ease-out-expo) both;
+}
+
+.scrollDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(245, 239, 224, 0.4);
+}
+
+.scrollLine {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(245, 239, 224, 0.35), transparent);
+  animation: scrollPulse 2.2s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .headline { font-size: clamp(3rem, 16vw, 5rem); }
+  .since { display: none; }
+}

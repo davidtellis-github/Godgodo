@@ -1,0 +1,117 @@
+.section {
+  position: relative;
+  padding: clamp(80px, 10vw, 120px) clamp(1.5rem, 6vw, 7rem);
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.header {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.section.visible .header { opacity: 1; transform: translateY(0); }
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-top: 0.75rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.card {
+  background: rgba(245, 239, 224, 0.05);
+  border: 1px solid rgba(245, 239, 224, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.65s var(--ease-out-expo),
+    transform 0.65s var(--ease-out-expo),
+    border-color var(--duration-med);
+}
+.section.visible .card { opacity: 1; transform: translateY(0); }
+.card:hover { border-color: rgba(245, 239, 224, 0.28); }
+
+.cover {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background: rgba(245, 239, 224, 0.03);
+  border-bottom: 1px dashed rgba(245, 239, 224, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  color: rgba(245, 239, 224, 0.2);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.trackTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.trackDesc {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.listenBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: rgba(245, 239, 224, 0.6);
+  text-decoration: none;
+  width: fit-content;
+  transition: color var(--duration-fast);
+}
+.listenBtn:hover { color: var(--text-primary); }
+
+@media (max-width: 780px) {
+  .grid { grid-template-columns: 1fr; }
+}

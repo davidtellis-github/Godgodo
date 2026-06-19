@@ -1,0 +1,18 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 216px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.strip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}

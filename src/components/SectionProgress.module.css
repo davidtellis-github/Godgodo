@@ -1,0 +1,55 @@
+.progress {
+  position: fixed;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.1rem 0;
+  color: rgba(245, 239, 224, 0.18);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.item.active {
+  color: #C9A84C;
+}
+
+.number {
+  width: 0.9rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.tick {
+  display: block;
+  width: 1.4rem;
+  height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .progress { display: none; }
+}

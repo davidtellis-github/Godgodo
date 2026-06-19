@@ -1,0 +1,40 @@
+/* ─── Godgodo Design Tokens — flat color era ─── */
+:root {
+  /* Section palette */
+  --color-navy:    #1A0019;
+  --color-coral:   #721111;
+  --color-mustard: #D9A23B;
+  --color-teal:    #1F6F5C;
+  --color-cream:   #F5EFE0;
+  --color-gold:    #C9A84C;
+  --color-footer:  #B83D3D;
+
+  /* Text */
+  --text-primary:  #F5EFE0;
+  --text-muted:    rgba(245, 239, 224, 0.60);
+
+  /* Fonts */
+  --font-display:  'onest', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:     'onest', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans:     'onest', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium:  500;
+  --font-weight-black:   900;
+
+  /* Spacing */
+  --section-px: clamp(1.5rem, 6vw, 7.5rem);
+  --section-py: clamp(5rem, 10vw, 10rem);
+
+  /* Radii */
+  --radius-card: 12px;
+  --radius-pill: 999px;
+
+  /* Transitions */
+  --ease-out-expo:     cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --duration-fast:     250ms;
+  --duration-med:      450ms;
+  --duration-slow:     700ms;
+}
