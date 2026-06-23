@@ -14,9 +14,9 @@
   --text-muted:    rgba(245, 239, 224, 0.60);
 
   /* Fonts */
-  --font-display:  'onest', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body:     'onest', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-sans:     'onest', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display:  'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:     'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans:     'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Weights */
   --font-weight-regular: 400;
