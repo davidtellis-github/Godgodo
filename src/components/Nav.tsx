@@ -1,5 +1,6 @@
 import styles from "./Nav.module.css";
 import { SECTION_COLORS } from "../sectionConfig";
+import logoSrc from "../assets/image.png";
 
 type Props = { activeId: string };
 
@@ -34,7 +35,7 @@ export default function Nav({ activeId }: Props) {
           }
           aria-label="godgodo — scroll to top"
         >
-          <img src="src/assets/image.png" alt="godgodo" className={styles.logoImg} />
+          <img src={logoSrc} alt="godgodo" className={styles.logoImg} />
         </button>
 
         {/* Right: Book Us */}

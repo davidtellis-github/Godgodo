@@ -1,4 +1,5 @@
 import styles from "./Footer.module.css";
+import logoSrc from "../assets/image.png";
 
 const NAV = [
   { label: "Story",   id: "story" },
@@ -21,7 +22,7 @@ export default function Footer() {
           onClick={() => document.getElementById("scroll-container")?.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="godgodo — scroll to top"
         >
-          <img src="src/assets/image.png" alt="godgodo" className={styles.logoImg} />
+          <img src={logoSrc} alt="godgodo" className={styles.logoImg} />
         </button>
 
         <nav className={styles.nav} aria-label="Footer navigation">
