@@ -1,26 +1,35 @@
+import { useState } from "react";
 import { SECTIONS } from "../sectionConfig";
 import styles from "./Hero.module.css";
+import fallbackImg from "../assets/fallback.png";
 
 const meta = SECTIONS.find((s) => s.id === "hero")!;
 
 export default function Hero() {
+  const [videoReady, setVideoReady] = useState(false);
+
   return (
     <section id="hero" className={styles.section}>
 
-      {/* ── Video / placeholder layer ── */}
+      {/* ── Video / fallback layer ── */}
       <div className={styles.mediaWrap} aria-hidden="true">
+
+        {/* Fallback image — always rendered, hidden once video plays */}
+        <img
+          className={styles.fallbackImg}
+          src={fallbackImg}
+          alt=""
+          style={{ opacity: videoReady ? 0 : 1 }}
+        />
 
         <video
           className={styles.video}
           src="/hero-video.mp4"
           autoPlay muted loop playsInline
-          poster="/hero-poster.jpg"
+          poster={fallbackImg}
+          onCanPlay={() => setVideoReady(true)}
+          style={{ opacity: videoReady ? 1 : 0 }}
         />
-
-        <div className={styles.placeholder}>
-          <VideoIcon />
-          <span>Drop hero-video.mp4 in /public</span>
-        </div>
 
 
         {/* Gradient overlay for text contrast */}
@@ -61,12 +70,3 @@ export default function Hero() {
   );
 }
 
-function VideoIcon() {
-  return (
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" strokeWidth="0.9" strokeLinecap="round" aria-hidden="true">
-      <rect x="2" y="4" width="15" height="16" rx="2" />
-      <path d="M17 8l5-4v16l-5-4" />
-    </svg>
-  );
-}
