@@ -1,13 +1,18 @@
 /* ─── Godgodo Design Tokens — flat color era ─── */
 :root {
-  /* Section palette */
-  --color-navy:    #1A0019;
-  --color-coral:   #721111;
-  --color-mustard: #D9A23B;
-  --color-teal:    #1F6F5C;
-  --color-cream:   #F5EFE0;
-  --color-gold:    #C9A84C;
-  --color-footer:  #B83D3D;
+  /* Section palette — deep purple to blush */
+  --color-deepest:  #190019;
+  --color-dark-purple: #2B124C;
+  --color-mid-purple:  #522B5B;
+  --color-light-purple: #854F8C;
+  --color-blush:    #DFB6B2;
+  --color-cream:    #FBE4D8;
+  --color-gold:     #854F8C;
+  --color-footer:   #190019;
+  /* Text on dark sections */
+  --text-on-dark:   #FBE4D8;
+  /* Text on light sections */
+  --text-on-light:  #190019;
 
   /* Text */
   --text-primary:  #F5EFE0;

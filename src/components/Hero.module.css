@@ -1,28 +1,39 @@
+/* ── Outer section: provides the visible frame/padding ── */
 .section {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* Frame padding — the background color shows as a border around the video */
+  padding: 1rem;
 }
 
-/* ── Video / placeholder layer ── */
+/* ── Video wrap — inset so the frame padding is visible ── */
 .mediaWrap {
   position: absolute;
-  inset: 0;
+  inset: 1rem;
   z-index: 0;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
-.video,
-.placeholder {
+.video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  z-index: 1;
 }
 
 .placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   background: #0a0a0f;
   display: flex;
   flex-direction: column;
@@ -34,74 +45,133 @@
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  z-index: 0;
 }
 
-/* Gradient overlay — dark at edges, lighter at center so text pops */
-.overlay {
+/* ── purple.png overlay — reversed (scaleY) so palette runs light→dark ── */
+.purpleOverlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.55) 0%,
-      rgba(0, 0, 0, 0.15) 40%,
-      rgba(0, 0, 0, 0.15) 60%,
-      rgba(0, 0, 0, 0.65) 100%
-    ),
-    linear-gradient(to right,
-      rgba(0, 0, 0, 0.25) 0%,
-      transparent 50%,
-      rgba(0, 0, 0, 0.25) 100%
-    );
-}
-
-/* Teal blob centered at bottom */
-.blob {
-  position: absolute;
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  bottom: -220px;
-  left: 50%;
-  transform: translateX(-50%);
-  filter: blur(100px);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scaleX(-1) rotate(90deg);
+  opacity: 0.6;
+  mix-blend-mode: multiply;
   pointer-events: none;
   z-index: 1;
 }
 
-/* Headline */
+/* ── Dark gradient overlay — just for text contrast, no color bleed ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.0) 30%,
+      rgba(0, 0, 0, 0.0) 55%,
+      rgba(0, 0, 0, 0.5) 100%);
+}
+
+/* ── Glow blob ── */
+.blob {
+  position: absolute;
+  width: 43.75rem;
+  height: 43.75rem;
+  border-radius: 50%;
+  bottom: -13.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(6.25rem);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Headline content — centered ── */
 .content {
   position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 0 clamp(1rem, 3vw, 3rem);
+  z-index: 3;
   width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.headlineWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .headline {
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 13.5vw, 5rem);
-  font-weight: 400;
+  font-family: twkFont, "twkFont Fallback", var(--font-display);
+  font-size: clamp(3rem, 10vw, 5.625rem);
+  font-weight: 800;
   text-transform: uppercase;
-  color: var(--text-primary);
-  line-height: 90%;
-  letter-spacing: -0.050em;
+  color: #FFFDE2;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  text-shadow:
+    0 0 1.25rem rgba(255, 255, 255, 0.95),
+    0 0 3.4375rem rgba(210, 180, 255, 0.6),
+    0 0 6.875rem rgba(140, 80, 255, 0.3);
   animation: fadeIn 1s 0.1s var(--ease-out-expo) both;
 }
 
-/* Bottom-left: since label */
-.since {
-  position: absolute;
-  bottom: 2.5rem;
-  left: clamp(1.5rem, 4vw, 4rem);
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-style: italic;
-  color: rgba(245, 239, 224, 0.45);
-  letter-spacing: 0.04em;
-  z-index: 3;
+.line1 {
+  display: block;
+  margin-left: 2.5rem;
 }
 
-/* Bottom-center: scroll indicator */
+.line2 {
+  display: block;
+  margin-left: 0;
+}
+
+.line3 {
+  display: block;
+  margin-left: 12.5rem;
+}
+
+/* Bottom-left of headline block: since label */
+.since {
+  position: absolute;
+  bottom: -1.6rem;
+  left: -5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-style: italic;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ── Bottom-right: tagline description ── */
+.description {
+  position: absolute;
+  bottom: 2.25rem;
+  right: 3.5rem;
+  max-width: 16.875rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.01em;
+  text-align: left;
+  z-index: 4;
+  animation: fadeIn 1s 0.8s var(--ease-out-expo) both;
+}
+
+/* ── Scroll cue ── */
 .scrollCue {
   position: absolute;
   bottom: 2.25rem;
@@ -110,37 +180,81 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  z-index: 3;
+  gap: 0.375rem;
+  z-index: 4;
   animation: fadeIn 1s 1s var(--ease-out-expo) both;
 }
 
 .scrollDot {
-  width: 5px;
-  height: 5px;
+  width: 0.3125rem;
+  height: 0.3125rem;
   border-radius: 50%;
   background: rgba(245, 239, 224, 0.4);
 }
 
 .scrollLine {
-  width: 1px;
-  height: 40px;
+  width: 0.0625rem;
+  height: 2.5rem;
   background: linear-gradient(to bottom, rgba(245, 239, 224, 0.35), transparent);
   animation: scrollPulse 2.2s ease-in-out infinite;
   transform-origin: top;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes scrollPulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
-@media (max-width: 640px) {
-  .headline { font-size: clamp(3rem, 16vw, 5rem); }
-  .since { display: none; }
+@media (max-width: 768px) {
+  .section {
+    padding: 0.75rem;
+  }
+
+  .mediaWrap {
+    inset: 0.75rem;
+    border-radius: 0.875rem;
+  }
+
+  .content {
+    padding: 0 2rem;
+  }
+
+  .headline {
+    font-size: clamp(2.25rem, 12vw, 4rem);
+  }
+
+  .line1 {
+    margin-left: 1.25rem;
+  }
+
+  .line3 {
+    margin-left: 4rem;
+  }
+
+  .since {
+    left: 2rem;
+  }
+
+  .description {
+    display: none;
+  }
 }

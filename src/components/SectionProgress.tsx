@@ -20,13 +20,7 @@ export default function SectionProgress({ activeId }: Props) {
             aria-label={`Go to ${s.label}`}
             aria-current={active ? "true" : undefined}
           >
-            <span className={styles.number}>{s.number}</span>
-            {active && (
-              <>
-                <span className={styles.tick} aria-hidden="true" />
-                <span className={styles.label}>{s.label}</span>
-              </>
-            )}
+            <span className={styles.label}>{s.label}</span>
           </button>
         );
       })}

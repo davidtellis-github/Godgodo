@@ -14,38 +14,39 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding: 1.1rem clamp(1.5rem, 4vw, 4rem);
+  padding: 2rem 3.5rem;
 }
 
 /* Left */
 .menuBtn {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 12px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-  color: var(--text-primary);
-  opacity: 0.75;
-  transition: opacity var(--duration-fast);
+  color: white;
 }
-.menuBtn:hover { opacity: 1; }
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
 .menuBar {
   display: block;
-  width: 18px;
-  height: 1.5px;
+  width: 12px;
+  height: 1px;
   background: currentColor;
-  border-radius: 1px;
 }
 
 .menuLabel {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-family: twkFont, "twkFont Fallback", var(--font-body);
+  font-size: 10px;
   font-weight: var(--font-weight-medium);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
 }
 
 /* Center */
@@ -65,9 +66,9 @@
   max-width: 130px;
   display: block;
   object-fit: contain;
-  transition: opacity var(--duration-fast);
 }
-.logo:hover .logoImg { opacity: 0.7; }
+
+
 
 /* Right */
 .right {
@@ -80,17 +81,19 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-family: twkFont, "twkFont Fallback", var(--font-body);
+  font-size: 10.175px;
   font-weight: var(--font-weight-medium);
-  color: var(--text-primary);
-  letter-spacing: 0.04em;
-  opacity: 0.75;
-  transition: opacity var(--duration-fast);
+  color: white;
+  letter-spacing: 0.12em;
 }
-.bookBtn:hover { opacity: 1; }
 
 @media (max-width: 480px) {
-  .menuLabel { display: none; }
-  .logoImg { height: 28px; }
+  .menuLabel {
+    display: none;
+  }
+
+  .logoImg {
+    height: 28px;
+  }
 }

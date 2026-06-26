@@ -19,8 +19,10 @@ export default function Nav({ activeId }: Props) {
       <div className={styles.inner}>
         {/* Left: hamburger */}
         <button className={styles.menuBtn} aria-label="Open menu">
-          <span className={styles.menuBar} />
-          <span className={styles.menuBar} />
+          <div className={styles.hamburger}>
+            <span className={styles.menuBar} />
+            <span className={styles.menuBar} />
+          </div>
           <span className={styles.menuLabel}>Menu</span>
         </button>
 

@@ -9,25 +9,25 @@ export default function Hero() {
 
       {/* ── Video / placeholder layer ── */}
       <div className={styles.mediaWrap} aria-hidden="true">
-        
 
-          <video
-            className={styles.video}
-            src="src/components/Website hero video v1.mp4"
-            autoPlay muted loop playsInline
-            poster="/hero-poster.jpg"
-          />
-        
+        <video
+          className={styles.video}
+          src="src/components/Website hero video v1.mp4"
+          autoPlay muted loop playsInline
+          poster="/hero-poster.jpg"
+        />
+
         <div className={styles.placeholder}>
           <VideoIcon />
           <span>Drop hero-video.mp4 in /public</span>
         </div>
 
+
         {/* Gradient overlay for text contrast */}
         <div className={styles.overlay} />
       </div>
 
-      {/* Teal glow blob — centered bottom */}
+      {/* Glow blob — centered bottom */}
       <div
         className={styles.blob}
         aria-hidden="true"
@@ -38,15 +38,15 @@ export default function Hero() {
 
       {/* Massive centered headline */}
       <div className={styles.content}>
-        <h1 className={styles.headline}>
-          Your Next<br />
-          Favorite<br />
-          Sound<br />
-        </h1>
+        <div className={styles.headlineWrap}>
+          <h1 className={styles.headline}>
+            <span className={styles.line1}>Your Next</span>
+            <span className={styles.line2}>Favorite</span>
+            <span className={styles.line3}>Sound</span>
+          </h1>
+          <p className={styles.since}>Since 2025</p>
+        </div>
       </div>
-
-      {/* Bottom-left: since label */}
-      <p className={styles.since}>Since 2025</p>
 
       {/* Bottom-center: scroll cue */}
       <div className={styles.scrollCue} aria-hidden="true">

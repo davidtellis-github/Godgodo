@@ -7,7 +7,7 @@
 }
 
 html {
-  background: #0F1935;
+  background: #FBE4D8;
   color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  background: #0F1935;
+  background: #FBE4D8;
   overflow-x: hidden;
 }
 
@@ -35,8 +35,8 @@ html, body {
   position: fixed;
   inset: 0;
   overflow: hidden;
-  background-color: #0F1935;
-  transition: background-color 0.1s ease;
+  background-color: #FBE4D8;
+  transition: background-color 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Inner scroll container */
@@ -48,6 +48,10 @@ html, body {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   background: transparent;
+}
+
+section {
+  position: relative;
 }
 
 /* Eyebrow label */
