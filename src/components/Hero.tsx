@@ -12,7 +12,7 @@ export default function Hero() {
 
         <video
           className={styles.video}
-          src="src/components/Website hero video v1.mp4"
+          src="/hero-video.mp4"
           autoPlay muted loop playsInline
           poster="/hero-poster.jpg"
         />
